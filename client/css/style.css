@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+  }
+
+.books_list{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img{
+    flex: 33.33%;
+    padding: 5px;
+}
+
+h1
+{
+	text-align: center;
+    color: rgb(70, 82, 255);
+}
+
+#root{
+    text-align: center;
+    display:contents;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    text-align: left;
+  }
+  
+.base:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.nav_bar{
+    margin : auto;
+}
+
+.btn{
+    margin-left: 10px;
+}
+
+label{
+    font-size: large;
+}

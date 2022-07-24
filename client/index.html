@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Books shop</title>
+	<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+	<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+	
+	<script src="js/HomePage.js"></script>
+	<script src="js/Container.js"></script>
+	<script src="js/AuthorPage.js"></script>
+	<script src="js/ShoppingCartPage.js"></script>
+	<script src="js/BookPage.js"></script>
+
+
+
+	<link rel="stylesheet" type='text/css' href="css/style.css">
+
+</head>
+
+<body>
+	<div class="background"> 
+		<h1>Books Shop</h1>
+			<div id='root'></id>
+	</div>
+</body>
+
+<script>
+const domContainer = document.querySelector('#root');
+
+function setCookie(cvalue) {
+  const d = new Date();
+  d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = "shoping-cart=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+	let shoping_cart = []
+	let cart = getCookie("shoping-cart");
+	if (cart != "") {
+		shoping_cart = JSON.parse(cart);
+	} else {
+		setCookie(shoping_cart);
+	}
+	return shoping_cart;
+
+}
+
+const shoping_cart_arr = checkCookie();
+ReactDOM.render( React.createElement(Container,{shopingCart : shoping_cart_arr, addToCookie : setCookie}), domContainer);
+
+
+</script>
+
+
+</html>
