@@ -28,3 +28,9 @@ To run the server:
 npm install
 cd server
 node server.js
+
+# Moderators:
+
+Matan Peretz: https://github.com/MatanP12
+
+Yael Davidov: https://github.com/YaelD
